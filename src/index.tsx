@@ -2,13 +2,17 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './index.css'
-import App from './App'
+import { Home, Provincia } from './routes'
 import reportWebVitals from './reportWebVitals'
 
 const router = createBrowserRouter([
 	{
 		path: '/',
-		element: <App />
+		element: <Home />
+	},
+	{
+		path: '/provincia/:key',
+		element: <Provincia />
 	}
 ])
 
