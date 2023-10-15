@@ -22,14 +22,14 @@ export type OSMData = {
 	boundingbox: Array<string>
 }
 
-type WeatherStatus = {
+export type WeatherStatus = {
 	id: number
 	main: string
 	description: string
 	icon: string
 }
 
-type WeatherDay = {
+export type WeatherDay = {
 	dt: number
 	temp: number,
 	feels_like: number,
@@ -46,12 +46,12 @@ type WeatherDay = {
 	weather: Array<WeatherStatus>
 }
 
-type CurrentWeatherDay = Omit<WeatherDay, 'pop'> & {
+export type CurrentWeatherDay = Omit<WeatherDay, 'pop'> & {
 	sunrise: number,
 	sunset: number,
 }
 
-type RichWeatherDay = Omit<WeatherDay, 'temp' | 'feels_like' | 'visibility'> & {
+export type RichWeatherDay = Omit<WeatherDay, 'temp' | 'feels_like' | 'visibility'> & {
 	sunrise: number,
 	sunset: number,
 	moonrise: number,
