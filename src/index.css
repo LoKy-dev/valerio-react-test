@@ -39,7 +39,12 @@
 }
 
 @layer components {
-
+	.city-card {
+		@apply bg-f rounded-lg border border-default shadow cursor-pointer transition
+		hover:bg-hover hover:scale-105
+		active:scale-95
+		;
+	}
 }
 
 @layer utilities {

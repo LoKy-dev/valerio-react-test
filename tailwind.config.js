@@ -14,7 +14,7 @@ module.exports = {
 	theme: {
 		extend: {
 			colors: {
-				'primary': '#22c55e',
+				'primary': '#ec6e4c',
 				'bg': bgColors,
 				'text': 'rgb(var(--c-text) / <alpha-value>)',
 				'border': 'rgb(var(--c-border) / <alpha-value>)',
