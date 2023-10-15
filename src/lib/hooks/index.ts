@@ -24,7 +24,10 @@ export function useLazyAsyncData<T extends JSONValue>({ url, options }: RequestD
 				setError(e as Error) // Oversimplifying error collection and handling
 			}
 		})()
+		// eslint-disable-next-line
 	}, [])
+	// url and options are missing by design, this function is supposed to fetch data only on initial load
+	// this is done to leave room to implement refresh function
 
 	return { data, loading, error }
 }
@@ -54,7 +57,10 @@ export function useBatchLazyAsyncData<T extends JSONValue>(requestsData: Array<R
 				setError(e as Error) // Oversimplifying error collection and handling
 			}
 		})()
+		// eslint-disable-next-line
 	}, [])
+	// requestsData is missing by design, this function is supposed to fetch data only on initial load
+	// this is done to leave room to implement refresh function
 
 	return { data, loading, error }
 }
