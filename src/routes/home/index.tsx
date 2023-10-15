@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import type { WeatherDTO } from '../../lib/types'
 import { provinces } from '../../lib/provinces'
 import { useBatchLazyAsyncData } from '../../lib/hooks'
+import { CityWeatherSummary } from '../../lib/components'
 
 export const Home: FC = () => {
 	const navigate = useNavigate()
@@ -57,18 +58,15 @@ export const Home: FC = () => {
 		{/* Page content */}
 		<div className="max-w-screen-lg mx-auto grid md:grid-cols-2 gap-4 p-4 select-none">
 			{visibleCity.map(({ geo: { key, name }, weather: { current } }) => (
-				<div key={key}
-				     className="city-card p-2 flex gap-2 items-center"
-				     onClick={() => navigate(`/provincia/${key}`)}
-				>
-					<span className="flex-1 text-2xl pl-2">{name}</span>
-					<span className="text-5xl font-extralight"
-					>{current.temp.toFixed()}°</span> {/* It could be nice to add min and max temps */}
-					<img alt={current.weather[0]?.main}
-					     src={`https://openweathermap.org/img/wn/${current.weather[0]?.icon}@2x.png`}
-					     className="aspect-square h-16"
-					/>
-				</div>
+				<CityWeatherSummary
+					key={key}
+					name={name}
+					temp={current.temp}
+					iconAlt={current.weather[0]?.main}
+					iconUrl={`https://openweathermap.org/img/wn/${current.weather[0]?.icon}@2x.png`}
+					className="city-card"
+					onClick={() => navigate(`/provincia/${key}`)}
+				/>
 			))}
 		</div>
 	</>)
