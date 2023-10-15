@@ -24,7 +24,7 @@ export function useLazyAsyncData<T extends JSONValue>({ url, options }: RequestD
 				setError(e as Error) // Oversimplifying error collection and handling
 			}
 		})()
-	})
+	}, [])
 
 	return { data, loading, error }
 }
@@ -54,7 +54,7 @@ export function useBatchLazyAsyncData<T extends JSONValue>(requestsData: Array<R
 				setError(e as Error) // Oversimplifying error collection and handling
 			}
 		})()
-	})
+	}, [])
 
 	return { data, loading, error }
 }
