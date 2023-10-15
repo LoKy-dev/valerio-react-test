@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './index.css'
 import { Home, Provincia } from './routes'
+import { provinciaLoader } from './routes/provincia'
 import reportWebVitals from './reportWebVitals'
 
 const router = createBrowserRouter([
@@ -12,6 +13,7 @@ const router = createBrowserRouter([
 	},
 	{
 		path: '/provincia/:key',
+		loader: provinciaLoader,
 		element: <Provincia />
 	}
 ])
